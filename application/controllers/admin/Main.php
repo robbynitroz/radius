@@ -669,6 +669,7 @@ class Main extends Admin_Controller
         $this->load->view('admin/nas_template.php', $output);
     }
 
+
     public function templates()
     {
         $this->grocery_crud->set_table('templates')
