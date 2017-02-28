@@ -20,6 +20,7 @@ class Login extends CI_Model {
 
 	}
 
+	//testets
 	public function changePass($username, $old_pass, $new_pass)
 	{
 		$user = $this->db->where( 'username', $username )
