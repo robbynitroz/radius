@@ -106,7 +106,7 @@ class Email extends CI_Model
             ->where('email_type', 'wifi')
             ->where('hotel_id', $hotel_id)
             ->where('created_at >=', $start)
-            ->where('created_at <', $end)
+            ->where('created_at <=', $end)
             ->get('emails')
             ->result_array();
 

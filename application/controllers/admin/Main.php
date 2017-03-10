@@ -837,7 +837,7 @@ class Main extends Admin_Controller
                 $content = file_get_contents($name .'/'. $file);
 
                 // Creating content
-                $content = json_encode($this->email->previousAllEmails($id));
+                $content = json_encode($this->email->previousWeekEmails($id));
 
                 // Write content in file
                 file_put_contents($name .'/'. $file, $content);
@@ -848,7 +848,7 @@ class Main extends Admin_Controller
                 $content = file_get_contents($name .'/'. $file);
 
                 // Creating content
-                $content = json_encode($this->email->previousAllEmails($id));
+                $content = json_encode($this->email->previousWeekEmails($id));
 
                 // Write content in file
                 file_put_contents($name .'/'. $file, $content);

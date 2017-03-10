@@ -287,7 +287,7 @@ class Grocery_crud_model  extends CI_Model  {
 
     function get_ajax_relation_array($search, $field_name , $related_table , $related_field_title, $where_clause, $order_by)
     {
-    	return $this->get_relation_array($field_name , $related_table , $related_field_title, $where_clause, $order_by, 10 , $search);
+    	return $this->get_relation_array($field_name , $related_table , $related_field_title, $where_clause, $order_by, 50 , $search);
     }
 
     function get_relation_total_rows($field_name , $related_table , $related_field_title, $where_clause)
