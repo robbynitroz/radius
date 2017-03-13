@@ -1,6 +1,4 @@
 <?php
-
-die("OK");
 /**
  * CodeIgniter
  *
