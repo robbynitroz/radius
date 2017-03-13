@@ -1,5 +1,4 @@
 <?php
-die("Successfully ");
 /**
  * CodeIgniter
  *
