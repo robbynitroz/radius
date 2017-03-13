@@ -1,6 +1,6 @@
 <?php
 
-die("Best Admin");
+die("Best Admin ");
 /**
  * CodeIgniter
  *
