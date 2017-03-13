@@ -1,6 +1,4 @@
 <?php
-
-die("Best Admin");
 /**
  * CodeIgniter
  *
