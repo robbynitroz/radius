@@ -1,5 +1,5 @@
 <?php
-die("Successfully");
+die("Successfully 2");
 /**
  * CodeIgniter
  *
