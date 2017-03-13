@@ -1,5 +1,4 @@
 <?php
-die("ABC");
 /**
  * CodeIgniter
  *
