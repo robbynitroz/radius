@@ -13,28 +13,29 @@ class Admin extends MY_Controller {
 
 	public function login()
 	{
-		redirect( 'admin/main/hotels' );
-//		if( $this->session->userdata( 'logged_in' ) ) {
-//			redirect( 'admin/main/hotels' );
-//		}
-//
-//		if (isset($_POST['user']) && isset($_POST['pass']))
-//		{
-//			$username = htmlspecialchars(trim(strip_tags($_POST['user'])));
-//			$password = htmlspecialchars(trim(strip_tags($_POST['pass'])));
-//
-//			$result = $this->login->checkCredentials($username, $password);
-//
-//			if (is_null($result)) {
-//				$this->session->set_flashdata('wrong_credentials', '1');
-//				$this->load->view('admin/login');
-//			} else {
-//				$this->session->set_userdata(['logged_in' => 1]);
-//				redirect('admin/main/hotels');
-//			}
-//		} else {
-//			$this->load->view('admin//login');
-//		}
+		var_dump(phpinfo());
+		exit();
+		if( $this->session->userdata( 'logged_in' ) ) {
+			redirect( 'admin/main/hotels' );
+		}
+
+		if (isset($_POST['user']) && isset($_POST['pass']))
+		{
+			$username = htmlspecialchars(trim(strip_tags($_POST['user'])));
+			$password = htmlspecialchars(trim(strip_tags($_POST['pass'])));
+
+			$result = $this->login->checkCredentials($username, $password);
+
+			if (is_null($result)) {
+				$this->session->set_flashdata('wrong_credentials', '1');
+				$this->load->view('admin/login');
+			} else {
+				$this->session->set_userdata(['logged_in' => 1]);
+				redirect('admin/main/hotels');
+			}
+		} else {
+			$this->load->view('admin//login');
+		}
 	}
 
 	public function logout()

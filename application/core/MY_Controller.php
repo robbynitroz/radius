@@ -30,7 +30,7 @@
 			$this->load->library('session');
 
 			if( !$this->session->userdata( 'logged_in' ) ) {
-//				redirect( 'admin/login' );
+				redirect( 'admin/login' );
 			}
 
 			$this->data[ 'page_title' ] = 'CI App - Dashboard';
