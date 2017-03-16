@@ -343,8 +343,9 @@
                     fillRouterOnlineColumn(response);
                 }
             },
-            error: function ($response) {
-                console.log($response);
+            error: function(xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                console.log(err.Message);
             }
         });
     }
