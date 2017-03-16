@@ -32,7 +32,7 @@ class Admin extends MY_Controller {
 				redirect('admin/main/hotels');
 			}
 		} else {
-			$this->load->view('admin//login');
+			$this->load->view('admin/login');
 		}
 	}
 
