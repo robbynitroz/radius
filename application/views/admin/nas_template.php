@@ -336,6 +336,7 @@
         $.ajax({
             type: 'post',
             url: '/index.php/admin/main/getRoutersStatus',
+            dataType: 'json',
             data: {routers_ip_array: routers_ip_array},
             success: function (response) {
                 if(response) {
