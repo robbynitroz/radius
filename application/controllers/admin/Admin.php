@@ -11,6 +11,7 @@ class Admin extends MY_Controller {
 		$this->load->model('login');
 	}
 
+
 	public function login()
 	{
 		if( $this->session->userdata( 'logged_in' ) ) {
