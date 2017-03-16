@@ -13,10 +13,6 @@ class Admin extends MY_Controller {
 
 	public function login()
 	{
-		$this->load->view('admin/login');
-		var_dump('TEST');
-		exit;
-
 		if( $this->session->userdata( 'logged_in' ) ) {
 			redirect( 'admin/main/hotels' );
 		}
@@ -36,7 +32,7 @@ class Admin extends MY_Controller {
 				redirect('admin/main/hotels');
 			}
 		} else {
-			$this->load->view('admin/login');
+			$this->load->view('admin//login');
 		}
 	}
 
