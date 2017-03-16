@@ -645,7 +645,7 @@ class Hotel extends CI_Model
 
             $users_array[$value] = $this->db->query($query)->num_rows();
         }
-dd($users_array);
+
         return $users_array;
     }
 

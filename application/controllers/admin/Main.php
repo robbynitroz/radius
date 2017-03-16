@@ -598,7 +598,7 @@ class Main extends Admin_Controller
 
         $this->load->model('hotel');
         $array_of_status = $this->hotel->getRoutersStatus($routers_ip_array);
-
+dd(json_encode($array_of_status));
         echo json_encode($array_of_status);
     }
 

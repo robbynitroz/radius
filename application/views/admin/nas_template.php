@@ -342,6 +342,9 @@
                 if(response) {
                     fillRouterOnlineColumn(response);
                 }
+            },
+            error: function ($response) {
+                console.log($response);
             }
         });
     }
