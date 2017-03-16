@@ -13,6 +13,8 @@ class Admin extends MY_Controller {
 
 	public function login()
 	{
+		var_dump('END');
+		exit();
 		if( $this->session->userdata( 'logged_in' ) ) {
 			redirect( 'admin/main/hotels' );
 		}
