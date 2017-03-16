@@ -13,8 +13,6 @@ class Admin extends MY_Controller {
 
 	public function login()
 	{
-		var_dump('END');
-		exit();
 		if( $this->session->userdata( 'logged_in' ) ) {
 			redirect( 'admin/main/hotels' );
 		}
@@ -23,7 +21,8 @@ class Admin extends MY_Controller {
 		{
 			$username = htmlspecialchars(trim(strip_tags($_POST['user'])));
 			$password = htmlspecialchars(trim(strip_tags($_POST['pass'])));
-
+			var_dump('END1');
+			exit();
 			$result = $this->login->checkCredentials($username, $password);
 
 			if (is_null($result)) {
@@ -34,6 +33,8 @@ class Admin extends MY_Controller {
 				redirect('admin/main/hotels');
 			}
 		} else {
+			var_dump('END2');
+			exit();
 			$this->load->view('admin/login');
 		}
 	}
