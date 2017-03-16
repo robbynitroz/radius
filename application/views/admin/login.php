@@ -1,3 +1,7 @@
+<?php
+var_dump('VIEW');
+exit();
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
