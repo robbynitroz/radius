@@ -11,9 +11,8 @@ class Admin extends MY_Controller {
 		$this->load->model('login');
 	}
 
-
 	/**
-	 *
+	 * Login
      */
 	public function login()
 	{
