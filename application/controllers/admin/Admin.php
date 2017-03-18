@@ -12,6 +12,9 @@ class Admin extends MY_Controller {
 	}
 
 
+	/**
+	 *
+     */
 	public function login()
 	{
 		if( $this->session->userdata( 'logged_in' ) ) {
