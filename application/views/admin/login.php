@@ -122,6 +122,7 @@
 						<input type="submit"   name="login" class="login loginmodal-submit" value="Login">
 					</form>
 					<?php
+					dd($this->session->flashdata('change_pass_success'));
 						if( !empty($this->session->flashdata('change_pass_success'))) {
 							echo '<div class="alert alert-success">
 								<strong>Success! </strong> Password successfully changed</div>';
