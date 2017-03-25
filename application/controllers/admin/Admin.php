@@ -16,6 +16,10 @@ class Admin extends MY_Controller {
      */
 	public function login()
 	{
+		$link = mysql_connect('localhost', 'root', 'Zq4F3R607h1K');
+
+		var_dump($link);exit;
+
 		if( $this->session->userdata( 'logged_in' ) ) {
 			redirect( 'admin/main/hotels' );
 		}
