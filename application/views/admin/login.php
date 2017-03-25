@@ -122,17 +122,15 @@
 						<input type="submit"   name="login" class="login loginmodal-submit" value="Login">
 					</form>
 					<?php
+						if( !is_null($this->session->flashdata('change_pass_success'))) {
+							echo '<div class="alert alert-success">
+								<strong>Success! </strong> Password successfully changed</div>';
+						}
 
-					var_dump($this->session->flashdata('change_pass_success'));exit;
-//						if( !empty($this->session->flashdata('change_pass_success'))) {
-//							echo '<div class="alert alert-success">
-//								<strong>Success! </strong> Password successfully changed</div>';
-//						}
-//
-//						if( !empty($this->session->flashdata('wrong_credentials'))) {
-//							echo '<div class="alert alert-danger">
-//								<strong>Warning! </strong> Wrong Username or Password.</div>';
-//						}
+						if( !is_null($this->session->flashdata('wrong_credentials'))) {
+							echo '<div class="alert alert-danger">
+								<strong>Warning! </strong> Wrong Username or Password.</div>';
+						}
 					?>
 				</div>
 			</div>
