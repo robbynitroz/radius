@@ -65,6 +65,11 @@ class Template extends CI_Model
                 $template_variables['template_type']  = 'Email template';
                 $template_variables = array_merge($template_variables, $text_variables);
                 break;
+            case "Facebook template":
+                $text_variables = $this->getTranslateFacebookTexts($hotel_id);
+                $template_variables['template_type']  = 'Facebook template';
+                $template_variables = array_merge($template_variables, $text_variables);
+                break;
             case "Question template":
                 $text_variables = $this->getTranslateQuestionTexts($hotel_id);
                 $template_variables['translate_question_label'] = $text_variables['translate_question_label'];
@@ -110,6 +115,24 @@ class Template extends CI_Model
         $texts = $this->db->select('hotel_label_1, hotel_label_2, hotel_btn_label')
                             ->where('translate_id', $translate_id)
                             ->get('translate_email')
+                            ->row_array();
+        return $texts;
+    }
+
+    public function getTranslateFacebookTexts($hotel_id, $language = "English")
+    {
+
+        $translate_id = $this->db->select('translate_id')
+                                    ->from('hotel_language')
+                                    ->join('languages', 'languages.id = hotel_language.language_id', 'left')
+                                    ->where('languages.name', $language)
+                                    ->where('hotel_id', $hotel_id)
+                                    ->get()
+                                    ->row_array()['translate_id'];
+
+        $texts = $this->db->select('*')
+                            ->where('translate_id', $translate_id)
+                            ->get('translate_fb')
                             ->row_array();
         return $texts;
     }

@@ -460,6 +460,10 @@
                 edit_form = generateTemplateEmailEdit(template_variables);
                 $('#template_edit').html(edit_form);
                 break;
+            case 'Facebook template':
+                edit_form = generateTemplateFacebookEdit(template_variables);
+                $('#template_edit').html(edit_form);
+                break;
             case 'Question template':
                 edit_form = generateTemplateQuestionEdit(template_variables);
                 $('#template_edit').html(edit_form);
@@ -636,6 +640,90 @@
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel email placeholder:</label>' +
                     '<input type="text" class="form-control" name="hotel_label_2" value="' + data['hotel_label_2'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel background image:</label>' +
+                    '<img src="/assets/variables/' + data['hotel_bg_image'] + '" class="img-thumbnail" style="display: block; margin: 5px 0px;" alt="Cinque Terre" width="150" height="150">' +
+                    '<input type="file" class="form-control" name="hotel_bg_image" value="">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel logo:</label>' +
+                    '<img src="/assets/variables/' + data['hotel_logo'] + '" class="img-thumbnail" style="display: block; margin: 5px 0px;" alt="Cinque Terre" width="150" height="150">' +
+                    '<input type="file" class="form-control" name="hotel_logo" value="">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel background color:</label>' +
+                    '<input type="color" class="form-control" name="hotel_bg_color" value="' + data['hotel_bg_color'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel central part color:</label>' +
+                    '<input type="color" class="form-control" name="hotel_centr_color" value="' + data['hotel_centr_color'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel button background color:</label>' +
+                    '<input type="color" class="form-control" name="hotel_btn_bg_color" value="' + data['hotel_btn_bg_color'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Header font color:</label>' +
+                    '<input type="color" class="form-control" name="hotel_font_color1" value="' + data['hotel_font_color1'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Button font color:</label>' +
+                    '<input type="color" class="form-control" name="hotel_font_color2" value="' + data['hotel_font_color2'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Label font color:</label>' +
+                    '<input type="color" class="form-control" name="hotel_font_color3" value="' + data['hotel_font_color3'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Header font size:</label>' +
+                    '<input type="number" class="form-control" name="hotel_font_size1" value="' + data['hotel_font_size1'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Button font size:</label>' +
+                    '<input type="number" class="form-control" name="hotel_font_size2" value="' + data['hotel_font_size2'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Label font size:</label>' +
+                    '<input type="number" class="form-control" name="hotel_font_size3" value="' + data['hotel_font_size3'] + '">' +
+                    '</div>' +
+                    '<input type="hidden" class="form-control" name="template_id" value="' + data['template_id'] + '">' +
+                    '<input type="hidden" class="form-control" name="template_type" value="' + data['template_type'] + '">' +
+                    '<input type="hidden" class="form-control" name="hotel_id" value="' +  window.SEGMENT_3 + '">' +
+                    '<input type="hidden" class="form-control" name="form_language" value="' + window.ACTIVE_LANGUAGES[0]['name'] + '">' +
+                    '<button type="submit" class="btn btn-info">Submit</button>' +
+                    '<button type="button" class="btn btn-info" id="close_template_edit" style="margin-left: 10px">Close</button>' +
+                '</form>' +
+            '</div>';
+
+        return edit_form;
+    }
+
+    function generateTemplateFacebookEdit(data)
+    {
+        var language_tabs = generateLanguageTabs();
+
+        var edit_form =
+            '<div class="col-md-12">' +
+                '<div style="margin: 10px 0px;">' +
+                    language_tabs +
+                '</div>' +
+                '<form id="template_update" role="form" enctype="multipart/form-data">' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel header text:</label>' +
+                    '<input type="text" class="form-control" name="hotel_label_1" value="' + data['title'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel Facebook button text:</label>' +
+                    '<input type="text" class="form-control" name="hotel_btn_label" value="' + data['fb_title'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel devider text:</label>' +
+                    '<input type="text" class="form-control" name="hotel_label_2" value="' + data['middle_title'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">Hotel email field placeholder:</label>' +
+                    '<input type="text" class="form-control" name="hotel_label_2" value="' + data['email_title'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel background image:</label>' +
