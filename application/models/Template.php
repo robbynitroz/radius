@@ -323,9 +323,10 @@ class Template extends CI_Model
     public function setTemplateFacebookVariables($data)
     {
         //Unset from main $data all data which are for translate table
-        unset($data['hotel_label_1']);
-        unset($data['hotel_label_2']);
-        unset($data['hotel_btn_label']);
+        unset($data['title']);
+        unset($data['fb_title']);
+        unset($data['middle_title']);
+        unset($data['email_title']);
         unset($data['hotel_id']);
         unset($data['form_language']);
         unset($data['template_type']);
