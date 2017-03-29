@@ -218,7 +218,7 @@ class Template extends CI_Model
                 break;
             case "Facebook template":
                 // Add variables in the templates_variables
-                $res_1 = $this->setTemplatFacebookVariables($data);
+                $res_1 = $this->setTemplateFacebookVariables($data);
                 // Add texts in the template_email
                 $res_2 = $this->setTemplateFacebookTexts($data);
                 return $res_1 || $res_2;
