@@ -216,6 +216,13 @@ class Template extends CI_Model
                 $res_2 = $this->setTemplateEmailTexts($data);
                 return $res_1 || $res_2;
                 break;
+            case "Facebook template":
+                // Add variables in the templates_variables
+                $res_1 = $this->setTemplatFacebookVariables($data);
+                // Add texts in the template_email
+                $res_2 = $this->setTemplateFacebookTexts($data);
+                return $res_1 || $res_2;
+                break;
             case "Question template":
                 // Add variables in the templates_variables
                 $res_1 = $this->setTemplateQuestionVariables($data);
@@ -308,6 +315,49 @@ class Template extends CI_Model
 
         $this->db->where('translate_id', $translate_id);
         $result = $this->db->update('translate_email', $translate_data);
+
+        return filter_var($result, FILTER_VALIDATE_BOOLEAN);
+    }
+
+    /***********************************Set Facebook Template Variables***********************************************/
+    public function setTemplateFacebookVariables($data)
+    {
+        //Unset from main $data all data which are for translate table
+        unset($data['hotel_label_1']);
+        unset($data['hotel_label_2']);
+        unset($data['hotel_btn_label']);
+        unset($data['hotel_id']);
+        unset($data['form_language']);
+        unset($data['template_type']);
+
+        $this->db->where('template_id', $data['template_id']);
+        $result = $this->db->update('templates_variables', $data);
+
+        return filter_var($result, FILTER_VALIDATE_BOOLEAN);
+    }
+
+    public function setTemplateFacebookTexts($data)
+    {
+        $language = $data['form_language'];
+        $hotel_id = $data['hotel_id'];
+
+        $translate_id = $this->db->select('translate_id')
+            ->from('hotel_language')
+            ->join('languages', 'languages.id = hotel_language.language_id', 'left')
+            ->where('hotel_language.hotel_id', $hotel_id)
+            ->where('languages.name', $language)
+            ->get()
+            ->row_array()['translate_id'];
+
+        //Insert into Translate table with $translate_id row
+        $translate_data = [
+            'hotel_label_1'   => $data['hotel_label_1'],
+            'hotel_label_2'   => $data['hotel_label_2'],
+            'hotel_btn_label' => $data['hotel_btn_label']
+        ];
+
+        $this->db->where('translate_id', $translate_id);
+        $result = $this->db->update('translate_fb', $translate_data);
 
         return filter_var($result, FILTER_VALIDATE_BOOLEAN);
     }
