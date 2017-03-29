@@ -352,9 +352,10 @@ class Template extends CI_Model
 
         //Insert into Translate table with $translate_id row
         $translate_data = [
-            'hotel_label_1'   => $data['hotel_label_1'],
-            'hotel_label_2'   => $data['hotel_label_2'],
-            'hotel_btn_label' => $data['hotel_btn_label']
+            'title'        => $data['title'],
+            'fb_title'     => $data['fb_title'],
+            'middle_title' => $data['middle_title'],
+            'email_title'  => $data['email_title'],
         ];
 
         $this->db->where('translate_id', $translate_id);
