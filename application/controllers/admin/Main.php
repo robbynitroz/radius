@@ -378,12 +378,10 @@ class Main extends Admin_Controller
     public function setTemplateVariables()
     {
         $data = [];
-
-        $template_type              = $_POST['template_type'];
-
-        $data['hotel_id']           = $_POST['hotel_id'] ;
-
-        $data['template_id']        = $_POST['template_id'];
+var_dump($_POST);exit;
+        $template_type       = $_POST['template_type'];
+        $data['hotel_id']    = $_POST['hotel_id'] ;
+        $data['template_id'] = $_POST['template_id'];
 
         switch($template_type) {
             case 'Login template':
@@ -395,6 +393,16 @@ class Main extends Admin_Controller
                 $data['hotel_label_1']      = $_POST['hotel_label_1'];
                 $data['hotel_label_2']      = $_POST['hotel_label_2'];
                 $data['hotel_btn_label']    = $_POST['hotel_btn_label'];
+                break;
+            case 'Facebook template':
+                $data['title']        = $_POST['title'];
+                $data['middle_title'] = $_POST['middle_title'];
+                $data['fb_title']     = $_POST['fb_title'];
+                $data['email_title']  = $_POST['email_title'];
+
+                $data['hotel_font_color4'] = $_POST['hotel_font_color4']; // label  font color
+                $data['hotel_font_size4']  = $_POST['hotel_font_size4']; // label  font size
+
                 break;
             case 'Question template':
                 $data['translate_question_label'] = $_POST['translate_question_label'];

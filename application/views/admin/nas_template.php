@@ -711,19 +711,19 @@
                 '<form id="template_update" role="form" enctype="multipart/form-data">' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel header text:</label>' +
-                    '<input type="text" class="form-control" name="hotel_label_1" value="' + data['title'] + '">' +
+                    '<input type="text" class="form-control" name="title" value="' + data['title'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel Facebook button text:</label>' +
-                    '<input type="text" class="form-control" name="hotel_btn_label" value="' + data['fb_title'] + '">' +
+                    '<input type="text" class="form-control" name="fb_title" value="' + data['fb_title'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel devider text:</label>' +
-                    '<input type="text" class="form-control" name="hotel_label_2" value="' + data['middle_title'] + '">' +
+                    '<input type="text" class="form-control" name="middle_title" value="' + data['middle_title'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel email field placeholder:</label>' +
-                    '<input type="text" class="form-control" name="hotel_label_2" value="' + data['email_title'] + '">' +
+                    '<input type="text" class="form-control" name="email_title" value="' + data['email_title'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel background image:</label>' +
@@ -748,27 +748,27 @@
                     '<input type="color" class="form-control" name="hotel_btn_bg_color" value="' + data['hotel_btn_bg_color'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
-                    '<label for="pwd">Header font color:</label>' +
+                    '<label for="pwd">Title font color:</label>' +
                     '<input type="color" class="form-control" name="hotel_font_color1" value="' + data['hotel_font_color1'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
-                    '<label for="pwd">Button font color:</label>' +
+                    '<label for="pwd">Facebook button font color:</label>' +
                     '<input type="color" class="form-control" name="hotel_font_color2" value="' + data['hotel_font_color2'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
-                    '<label for="pwd">Label font color:</label>' +
+                    '<label for="pwd">Delimiter font color:</label>' +
                     '<input type="color" class="form-control" name="hotel_font_color3" value="' + data['hotel_font_color3'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
-                    '<label for="pwd">Header font size:</label>' +
+                    '<label for="pwd">Title font size:</label>' +
                     '<input type="number" class="form-control" name="hotel_font_size1" value="' + data['hotel_font_size1'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
-                    '<label for="pwd">Button font size:</label>' +
+                    '<label for="pwd">Facebook button font size:</label>' +
                     '<input type="number" class="form-control" name="hotel_font_size2" value="' + data['hotel_font_size2'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
-                    '<label for="pwd">Label font size:</label>' +
+                    '<label for="pwd">Delimiter font color size:</label>' +
                     '<input type="number" class="form-control" name="hotel_font_size3" value="' + data['hotel_font_size3'] + '">' +
                     '</div>' +
                     '<input type="hidden" class="form-control" name="template_id" value="' + data['template_id'] + '">' +
