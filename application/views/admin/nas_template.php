@@ -52,8 +52,60 @@
             z-index: 100;
         }
     </style>
+
+    <!-- You can use open graph tags to customize link previews.
+   Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    <meta property="og:url"           content="http://login.com/index.php" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+
 </head>
 <body>
+
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=696113500523537';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    $(document).ready(function() {
+        $.ajaxSetup({ cache: true });
+        $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+            FB.init({
+                appId: '696113500523537',
+                status: true, // check login status
+                oauth: false,
+                version: 'v2.8' // or v2.1, v2.2, v2.3, ...
+            });
+            $('#loginbutton,#feedbutton').removeAttr('disabled');
+
+            FB.Event.subscribe('edge.create', function(response) {
+                window.location = 'http://<?php echo $nasip;?>:64873/login?username=<?php echo $macaddress;?>&password=<?php echo $macaddress;?>&dst=<?php echo $url;?>';
+            });
+
+            FB.Event.subscribe('edge.remove', function(response) {
+                window.location = 'http://<?php echo $nasip;?>:64873/login?username=<?php echo $macaddress;?>&password=<?php echo $macaddress;?>&dst=<?php echo $url;?>';
+            });
+
+
+            FB.Event.subscribe('auth.statusChange', function(response) {
+                if (response.status === 'connected') {
+                    //the user is logged and has granted permissions
+                } else if (response.status === 'not_authorized') {
+                    //ask for permissions
+                } else {
+                    //ask the user to login to facebook
+                }
+            });
+
+        });
+    });
+
+</script>
+
 <!-- Beginning header -->
 <!--<div>-->
 <!--    <a href='--><?php //echo site_url('admin/main/hotels') ?><!--'>Manage hotels</a> |-->
