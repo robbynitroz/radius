@@ -53,13 +53,6 @@
         }
     </style>
 
-    <!-- You can use open graph tags to customize link previews.
-   Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-<!--    <meta property="og:url"           content="http://login.com/index.php" />-->
-<!--    <meta property="og:type"          content="website" />-->
-<!--    <meta property="og:title"         content="Your Website Title" />-->
-<!--    <meta property="og:description"   content="Your description" />-->
-
 </head>
 <body>
 
@@ -83,22 +76,15 @@
             $('#loginbutton,#feedbutton').removeAttr('disabled');
 
             FB.Event.subscribe('edge.create', function(response) {
-                window.location = 'http://<?php echo $nasip;?>:64873/login?username=<?php echo $macaddress;?>&password=<?php echo $macaddress;?>&dst=<?php echo $url;?>';
+                window.location = 'http://$nasip:64873/login?username=$macaddress&password=$macaddress&dst=$url';
             });
 
-            FB.Event.subscribe('edge.remove', function(response) {
-                window.location = 'http://<?php echo $nasip;?>:64873/login?username=<?php echo $macaddress;?>&password=<?php echo $macaddress;?>&dst=<?php echo $url;?>';
+            FB.Event.subscribe('auth.login', function(response) {
+                console.log(response);
             });
-
 
             FB.Event.subscribe('auth.statusChange', function(response) {
-                if (response.status === 'connected') {
-                    //the user is logged and has granted permissions
-                } else if (response.status === 'not_authorized') {
-                    //ask for permissions
-                } else {
-                    //ask the user to login to facebook
-                }
+                alert('The status of the session is: ' + response.status);
             });
 
         });
