@@ -95,18 +95,15 @@
                 console.log(response.data);
             });
 
-            FB.api({
-                    method: "pages.isFan",
-                    page_id: 830775716985965,
-                },  function(response) {
-                    console.log(response);
-                    if(response){
-                        alert('You Likey');
-                    } else {
-                        alert('You not Likey :(');
-                    }
-                }
-            );
+            FB.api('/me', function(response) {
+                console.log('Good to see you, ' + response.name + '.');
+            });
+
+            FB.api({ method: 'fql.query', query: 'SELECT uid FROM page_fan WHERE uid= ' + user_id + ' AND page_id=830775716985965' },
+                function(result) {
+                    if (result.length)
+                    { $('.main_frame').show(); $('#non_fan').hide(); } else { $('.main_frame').hide(); $('#non_fan').show(); }
+                });
 
         });
     });
