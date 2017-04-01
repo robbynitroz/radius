@@ -3,7 +3,11 @@
 session_start();
 require '../login/Facebook/autoload.php';
 
-$fb = new Facebook\Facebook([/* . . . */]);
+$fb = new Facebook\Facebook([
+    'app_id' => '696113500523537',
+    'app_secret' => 'f7c94fe5f0f51cc9a04fc2512b5c58cd',
+    'default_graph_version' => 'v2.8',
+]);
 
 $helper = $fb->getRedirectLoginHelper();
 try {
