@@ -12,6 +12,13 @@ $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email', 'user_likes']; // optional
 $loginUrl = $helper->getLoginUrl('http://radiusdev.guestcompass.nl/callback.php', $permissions);
 
+$signed_request = $facebook->getSignedRequest();
+
+$like = $signed_request['page']['liked'];
+
+echo "<pre>";
+var_dump($like);exit;
+
 echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
 exit;
 
