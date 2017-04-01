@@ -91,7 +91,7 @@
                 alert('The status of the session is: ' + response.status);
             });
 
-            FB.api('/me/likes/696113500523537', function(response) {
+                FB.api('/me/likes/830775716985965', function(response) {
                 console.log(response.data);
             });
 
