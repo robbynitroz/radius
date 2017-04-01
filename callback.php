@@ -30,19 +30,17 @@ if (isset($accessToken)) {
     // access token from $_SESSION['facebook_access_token']
 }
 
-$user = $fb->getUser();
 
-if ($user) {
-    try {
-        $likes = $fb->api("/me/likes/830775716985965");
-        if( !empty($likes['data']) )
-            echo "I like!";
-        else
-            echo "not a fan!";
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    }
+try {
+    $likes = $fb->api("/me/likes/830775716985965");
+    if( !empty($likes['data']) )
+        echo "I like!";
+    else
+        echo "not a fan!";
+} catch (Exception $e) {
+    echo $e->getMessage();
 }
+
 exit;
 //if ($user) {
 //    $logoutUrl = $fb->getLogoutUrl();
