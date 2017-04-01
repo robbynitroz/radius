@@ -31,7 +31,7 @@ if (isset($accessToken)) {
 }
 
 
-$result = $fb->get('me/likes/830775716985965');
+$result = $fb->get('me/likes/830775716985965', $accessToken);
 var_dump($result);
 exit;
 //if ($user) {
