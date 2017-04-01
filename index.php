@@ -3,30 +3,36 @@
 require '../login/Facebook/autoload.php';
 
 $fb = new Facebook\Facebook([
-		'app_id' => '6961135005235377',
+		'app_id' => '696113500523537',
 		'app_secret' => 'f7c94fe5f0f51cc9a04fc2512b5c58cd',
 		'default_graph_version' => 'v2.8',
 ]);
-echo "<pre>";
-var_dump($fb);exit;
-
-$helper = $fb->getJavaScriptHelper();
+$helper = $fb->getRedirectLoginHelper();
 
 try {
 	$accessToken = $helper->getAccessToken();
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
 	// When Graph returns an error
 	echo 'Graph returned an error: ' . $e->getMessage();
-//    exit;
+	exit;
 } catch(Facebook\Exceptions\FacebookSDKException $e) {
 	// When validation fails or other local issues
 	echo 'Facebook SDK returned an error: ' . $e->getMessage();
-//    exit;
+	exit;
 }
 
 if (! isset($accessToken)) {
-	echo 'No cookie set or no OAuth data could be obtained from cookie.';
-//    exit;
+	if ($helper->getError()) {
+		header('HTTP/1.0 401 Unauthorized');
+		echo "Error: " . $helper->getError() . "\n";
+		echo "Error Code: " . $helper->getErrorCode() . "\n";
+		echo "Error Reason: " . $helper->getErrorReason() . "\n";
+		echo "Error Description: " . $helper->getErrorDescription() . "\n";
+	} else {
+		header('HTTP/1.0 400 Bad Request');
+		echo 'Bad request';
+	}
+	exit;
 }
 
 
