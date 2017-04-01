@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../login/Facebook/autoload.php';
 
 $fb = new Facebook\Facebook([
