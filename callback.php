@@ -30,9 +30,9 @@ if (isset($accessToken)) {
     // access token from $_SESSION['facebook_access_token']
 }
 
-$signed_request = $fb->getSignedRequest();
-
-$like = $signed_request['page']['liked'];
+$signed_request = $_REQUEST["signed_request"];
+list($encoded_sig, $payload) = explode('.', $signed_request, 2);
+$data = json_decode(base64_decode(strtr($payload, '-_', '+/')), true);
 
 echo "<pre>";
-var_dump($like); exit;
+var_dump($data); exit;
