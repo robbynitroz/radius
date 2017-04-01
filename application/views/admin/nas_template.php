@@ -87,6 +87,19 @@
                 alert('The status of the session is: ' + response.status);
             });
 
+            FB.api({
+                    method:     "pages.isFan",
+                    page_id:        my_page_id,
+                },  function(response) {
+                    console.log(response);
+                    if(response){
+                        alert('You Likey');
+                    } else {
+                        alert('You not Likey :(');
+                    }
+                }
+            );
+
         });
     });
 
