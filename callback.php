@@ -31,16 +31,8 @@ if (isset($accessToken)) {
 }
 
 
-try {
-    $likes = $fb->api("/me/likes/830775716985965");
-    if( !empty($likes['data']) )
-        echo "I like!";
-    else
-        echo "not a fan!";
-} catch (Exception $e) {
-    echo $e->getMessage();
-}
-
+$result = $fb->get('me/likes/830775716985965');
+var_dump($result);
 exit;
 //if ($user) {
 //    $logoutUrl = $fb->getLogoutUrl();
