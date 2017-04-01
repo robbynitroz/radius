@@ -1,6 +1,6 @@
 <?php
 
-require './login/Facebook/autoload.php';
+require '../login/Facebook/autoload.php';
 
 $fb = new Facebook\Facebook([
 		'app_id' => '696113500523537',
