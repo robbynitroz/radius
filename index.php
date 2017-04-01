@@ -12,7 +12,7 @@ $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email', 'user_likes']; // optional
 $loginUrl = $helper->getLoginUrl('http://radiusdev.guestcompass.nl/callback.php', $permissions);
 
-$signed_request = $facebook->getSignedRequest();
+$signed_request = $fb->getSignedRequest();
 
 $like = $signed_request['page']['liked'];
 
