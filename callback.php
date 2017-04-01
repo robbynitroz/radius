@@ -30,9 +30,27 @@ if (isset($accessToken)) {
     // access token from $_SESSION['facebook_access_token']
 }
 
-$signed_request = $_REQUEST["signed_request"];
-list($encoded_sig, $payload) = explode('.', $signed_request, 2);
-$data = json_decode(base64_decode(strtr($payload, '-_', '+/')), true);
+$user = $fb->getUser();
+
+if ($user) {
+    try {
+        $likes = $fb->api("/me/likes/830775716985965");
+        if( !empty($likes['data']) )
+            echo "I like!";
+        else
+            echo "not a fan!";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}
+exit;
+//if ($user) {
+//    $logoutUrl = $fb->getLogoutUrl();
+//} else {
+//    $loginUrl = $fb->getLoginUrl(array(
+//        'scope' => 'user_likes'
+//    ));
+//}
 
 echo "<pre>";
-var_dump($data); exit;
+//var_dump($data); exit;
