@@ -32,7 +32,16 @@ if (isset($accessToken)) {
 
 
 $result = $fb->get('me/likes/830775716985965', $accessToken);
-var_dump($result);
+
+$res = $result->getGraphEdge()->asArray();
+
+$pages = array();
+
+foreach($res as $page){
+    $pages[] = $page['id'];
+}
+
+var_dump($pages);
 exit;
 //if ($user) {
 //    $logoutUrl = $fb->getLogoutUrl();
