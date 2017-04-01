@@ -91,19 +91,16 @@
                 alert('The status of the session is: ' + response.status);
             });
 
-//            FB.api('/me/likes/830775716985965', function(response) {
-//                console.log(response.data);
-//            });
-
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
                     var accessToken = response.authResponse.accessToken;
+
+                    FB.api('/me/likes/830775716985965', {access_token: accessToken}, function(response) {
+                        console.log(response.data);
+                    });
+
                 }
             } );
-
-            FB.api('/me/likes/830775716985965', {access_token: accessToken}, function(response) {
-                console.log(response.data);
-            });
 
         });
     });
