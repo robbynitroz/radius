@@ -86,6 +86,12 @@
                     FB.api('/me/likes/830775716985965', {access_token: accessToken}, function(response) {
                         console.log(response.data);
                     });
+
+                    FB.api('/me', { locale: 'en_US', fields: 'name, email', access_token: accessToken },
+                        function(response) {
+                            console.log(response.email);
+                        }
+                    );
                 }
             } );
 
