@@ -83,6 +83,12 @@
                 alert ("Welcome " + response.name + ": Your UID is " + response.id);
             });
 
+            FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                    var accessToken = response.authResponse.accessToken;
+                }
+            } );
+
         });
     });
 
