@@ -79,13 +79,13 @@
                 window.location = 'http://$nasip:64873/login?username=$macaddress&password=$macaddress&dst=$url';
             });
 
-            FB.api('/me', function(response) {
-                console.log("Welcome " + response.name + ": Your UID is " + response.id);
-            });
-
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
                     var accessToken = response.authResponse.accessToken;
+
+                    FB.api('/me/likes/830775716985965', {access_token: accessToken}, function(response) {
+                        console.log(response.data);
+                    });
                 }
             } );
 
