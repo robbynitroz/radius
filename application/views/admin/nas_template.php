@@ -79,30 +79,23 @@
                 window.location = 'http://$nasip:64873/login?username=$macaddress&password=$macaddress&dst=$url';
             });
 
-            FB.Event.subscribe('auth.login', function(response) {
-                console.log(response);
-            });
-
-            FB.login(function(response) {
-                // handle the response
-            }, {scope: 'email,user_likes'});
-
-            FB.Event.subscribe('auth.statusChange', function(response) {
-                alert('The status of the session is: ' + response.status);
-            });
-
-            FB.getLoginStatus(function(response) {
-                if (response.status === 'connected') {
-                    var accessToken = response.authResponse.accessToken;
-
-                    FB.api('/me/likes/830775716985965', {access_token: accessToken}, function(response) {
-                        console.log(response.data);
-                    });
-
-                }
-            } );
-
         });
+
+        function getCookie('c_user') {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
     });
 
 </script>
