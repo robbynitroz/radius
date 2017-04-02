@@ -31,7 +31,7 @@ if (isset($accessToken)) {
 }
 
 
-$result = $fb->get('me/likes', $accessToken);
+$result = $fb->get('me/likes/830775716985965', $accessToken);
 
 $res = $result->getGraphEdge()->asArray();
 
