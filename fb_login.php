@@ -10,8 +10,8 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email', 'user_likes']; // optional
-//$loginUrl = $helper->getLoginUrl('http://radiusdev.guestcompass.nl/callback.php', $permissions);
-$loginUrl = $helper->getLoginUrl('http://radiusdev.guestcompass.nl/fb_login.php', $permissions);
+$loginUrl = $helper->getLoginUrl('http://radiusdev.guestcompass.nl/callback.php', $permissions);
+//$loginUrl = $helper->getLoginUrl('http://radiusdev.guestcompass.nl/fb_login.php', $permissions);
 
 echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
 //exit;
