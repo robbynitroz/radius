@@ -80,7 +80,7 @@
             });
 
             FB.api('/me', function(response) {
-                alert ("Welcome " + response.name + ": Your UID is " + response.id);
+                console.log("Welcome " + response.name + ": Your UID is " + response.id);
             });
 
             FB.getLoginStatus(function(response) {
