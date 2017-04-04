@@ -2,9 +2,19 @@
 
 class Main extends Admin_Controller
 {
+    public $fb;
+
     function __construct()
     {
         parent::__construct();
+
+        require '../login/Facebook/autoload.php';
+
+        $this->fb = new Facebook\Facebook([
+            'app_id' => '696113500523537',
+            'app_secret' => 'f7c94fe5f0f51cc9a04fc2512b5c58cd',
+            'default_graph_version' => 'v2.8',
+        ]);
 
         /* Standard Libraries of codeigniter are required */
         $this->load->database();
@@ -780,6 +790,18 @@ class Main extends Admin_Controller
             $this->email->createNewElasticLists($post_array['alias']);
 
             return $post_array;
+        });
+
+        $this->grocery_crud->callback_before_insert(function($post_array) {
+
+            //Generate new added router IP
+            $post_array['nasname'] = $this->setNewRouter();
+
+            $request = $this->fb->request('GET', '/', ['id' => 'https://www.facebook.com/coderiders.am/?fref=ts']);
+
+            $response = $this->fb->getClient()->sendRequest($request);
+
+            var_dump($response);exit;
         });
 
         $this->grocery_crud->callback_before_delete(array($this, 'deleteHotelRelationships'));
