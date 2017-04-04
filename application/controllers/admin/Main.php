@@ -801,11 +801,11 @@ class Main extends Admin_Controller
 
     public function setFbPageId()
     {
-        $request = $this->fb->request('GET', '/', ['id' => 'https://www.facebook.com/coderiders.am/?fref=ts']);
-
-        $response = $this->fb->getClient()->sendRequest($request);
-
-        var_dump($response);exit;
+//        $request = $this->fb->request('GET', '/', ['id' => 'https://www.facebook.com/coderiders.am/?fref=ts']);
+//
+//        $response = $this->fb->getClient()->sendRequest($request);
+//
+//        var_dump($response);exit;
     }
 
     public function deleteHotelRelationships($primary_key)
