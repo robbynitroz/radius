@@ -761,7 +761,8 @@ class Main extends Admin_Controller
             ->field_type('questions_timeout', 'integer')
             ->display_as('emails_timeout',     'Emails timeout(number of days)')
             ->field_type('emails_timeout',     'integer')
-            ->display_as('url', 'Redirect after login to next URL');
+            ->display_as('url', 'Redirect after login to next URL')
+            ->field_type('facebook_page_id',     'hidden');
 
         //callback after new hotel add
         $this->grocery_crud->callback_after_insert(function($post_array){
