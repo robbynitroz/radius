@@ -808,6 +808,30 @@ class Main extends Admin_Controller
 //        var_dump($response);exit;
     }
 
+    public function likeFb()
+    {
+        $mac_address = $_POST['mac_address'];
+        $url         = $_POST['url'];
+
+        $this->load->model('facebook');
+
+        $this->facebook->like($mac_address, $url);
+
+        return json_encode(['success' => 1]);
+    }
+
+    public function unlikeFb()
+    {
+        $mac_address = $_POST['mac_address'];
+        $url         = $_POST['url'];
+
+        $this->load->model('facebook');
+
+        $this->facebook->unlike($mac_address, $url);
+
+        return json_encode(['success' => 1]);
+    }
+
     public function deleteHotelRelationships($primary_key)
     {
         $this->load->model('hotel');
