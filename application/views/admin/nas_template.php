@@ -204,7 +204,7 @@
             async:false
         });
 
-        $('#field-facebook_page').onblur(function() {
+        $('#field-facebook_page').focusout(function() {
             var fb_url = $(this).val();
 
             $.ajax({
