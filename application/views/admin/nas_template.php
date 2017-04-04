@@ -204,6 +204,26 @@
             async:false
         });
 
+        $('#field-facebook_page').onblur(function() {
+            var fb_url = $(this).val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/index.php/admin/main/setFbPageId',
+                dataType: 'json',
+                data: {url: fb_url},
+                success: function(response){
+                    if(response) {
+                        console.log(response);
+                    } else {
+                        console.log(response);
+                    }
+                },
+                async:false
+            });
+
+        });
+
         //Get current URL
         var URL = window.location.href;
         var URL_SEGMENTS = URL.split('/');

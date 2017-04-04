@@ -792,25 +792,20 @@ class Main extends Admin_Controller
             return $post_array;
         });
 
-        $this->grocery_crud->callback_before_insert(function($post_array) {
-
-            //Generate new added router IP
-            $post_array['nasname'] = $this->setNewRouter();
-
-            $request = $this->fb->request('GET', '/', ['id' => 'https://www.facebook.com/coderiders.am/?fref=ts']);
-
-            $response = $this->fb->getClient()->sendRequest($request);
-
-            var_dump($response);exit;
-        });
-
         $this->grocery_crud->callback_before_delete(array($this, 'deleteHotelRelationships'));
 
         $output = $this->grocery_crud->render();
 
-
-
         $this->_hotels_output($output);
+    }
+
+    public function setFbPageId()
+    {
+        $request = $this->fb->request('GET', '/', ['id' => 'https://www.facebook.com/coderiders.am/?fref=ts']);
+
+        $response = $this->fb->getClient()->sendRequest($request);
+
+        var_dump($response);exit;
     }
 
     public function deleteHotelRelationships($primary_key)
