@@ -1,7 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-header('Access-Control-Allow-Origin: *');
-
 class Main extends Admin_Controller
 {
     public $fb;
@@ -773,8 +771,7 @@ class Main extends Admin_Controller
             ->field_type('questions_timeout', 'integer')
             ->display_as('emails_timeout',     'Emails timeout(number of days)')
             ->field_type('emails_timeout',     'integer')
-            ->display_as('url', 'Redirect after login to next URL')
-            ->field_type('facebook_page_id',     'hidden');
+            ->display_as('url', 'Redirect after login to next URL');
 
         //callback after new hotel add
         $this->grocery_crud->callback_after_insert(function($post_array){
