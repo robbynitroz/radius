@@ -96,7 +96,7 @@ a:hover
 </footer>
 <script src="assets/js/jQuery-1.10.2.js""></script>
 <script src="assets/js/bootstrap.min.js"></script>
-<?php echo $before_body;?>
+
 </div>
 <!-- End of Footer -->
 </body>
