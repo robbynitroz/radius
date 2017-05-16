@@ -202,7 +202,7 @@ class Template extends CI_Model
         if(empty($data['hotel_logo'])) {
             unset($data['hotel_logo']);
         }
-dd($template_name);
+
         switch($template_name) {
             case "Login template":
                 // Add variables in the templates_variables
@@ -219,16 +219,17 @@ dd($template_name);
                 return $res_1 || $res_2;
                 break;
             case "Facebook template":
+                var_dump($data); exit;
                 // Add variables in the templates_variables
                 $res_1 = $this->setTemplateFacebookVariables($data);
-                // Add texts in the template_email
+                // Add texts in the template_facebook
                 $res_2 = $this->setTemplateFacebookTexts($data);
                 return $res_1 || $res_2;
                 break;
             case "Question template":
                 // Add variables in the templates_variables
                 $res_1 = $this->setTemplateQuestionVariables($data);
-                // Add texts in the template_email
+                // Add texts in the template_question
                 $res_2 = $this->setTemplateQuestionTexts($data);
                 return $res_1 || $res_2;
                 break;
