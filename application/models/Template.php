@@ -202,7 +202,7 @@ class Template extends CI_Model
         if(empty($data['hotel_logo'])) {
             unset($data['hotel_logo']);
         }
-
+dd($template_name);
         switch($template_name) {
             case "Login template":
                 // Add variables in the templates_variables
