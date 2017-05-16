@@ -1004,6 +1004,13 @@
                 $('#questions_table tbody tr:eq('+ index +')').find('textarea').val(value['text']);
             });
         }
+        else if (template_type == 'Facebook template')
+        {
+            $('input[name="title"]').val(data['title']);
+            $('input[name="middle_title"]').val(data['middle_title']);
+            $('input[name="email_title"]').val(data['email_title']);
+            $('input[name="fb_title"]').val(data['fb_title']);
+        }
         else
         {
             $('input[name="hotel_label_1"]').val(data['hotel_label_1']);
