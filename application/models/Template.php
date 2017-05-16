@@ -219,7 +219,6 @@ class Template extends CI_Model
                 return $res_1 || $res_2;
                 break;
             case "Facebook template":
-                var_dump($data); exit;
                 // Add variables in the templates_variables
                 $res_1 = $this->setTemplateFacebookVariables($data);
                 // Add texts in the template_facebook
@@ -353,6 +352,8 @@ class Template extends CI_Model
             ->get()
             ->row_array()['translate_id'];
 
+
+
         //Insert into Translate table with $translate_id row
         $translate_data = [
             'title'        => $data['title'],
@@ -361,6 +362,8 @@ class Template extends CI_Model
             'email_title'  => $data['email_title'],
         ];
 
+        var_dump($translate_id);
+        var_dump($translate_data); exit;
         $this->db->where('translate_id', $translate_id);
         $result = $this->db->update('translate_fb', $translate_data);
 
