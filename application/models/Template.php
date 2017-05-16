@@ -180,6 +180,8 @@ class Template extends CI_Model
                 return $this->getTranslateEmailTexts($hotel_id, $language);
             case "Question template":
                 return $this->getTranslateQuestionTexts($hotel_id, $language);
+            case "Facebook template":
+                return $this->getTranslateFacebookTexts($hotel_id, $language);
         }
     }
 
