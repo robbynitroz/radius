@@ -353,7 +353,6 @@ class Template extends CI_Model
             ->row_array()['translate_id'];
 
 
-
         //Insert into Translate table with $translate_id row
         $translate_data = [
             'title'        => $data['title'],
@@ -362,8 +361,6 @@ class Template extends CI_Model
             'email_title'  => $data['email_title'],
         ];
 
-        var_dump($translate_id);
-        var_dump($translate_data); exit;
         $this->db->where('translate_id', $translate_id);
         $result = $this->db->update('translate_fb', $translate_data);
 

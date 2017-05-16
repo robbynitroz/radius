@@ -378,18 +378,21 @@ class Hotel extends CI_Model
         $res_2 = $this->setDefaultTranslateEmail($translate_id);
         $res_2 = filter_var($res_2, FILTER_VALIDATE_BOOLEAN);
 
+        $res_3 = $this->setDefaultTranslateFacebook($translate_id);
+        $res_3 = filter_var($res_3, FILTER_VALIDATE_BOOLEAN);
+
         $translate_question_label_data = [
             'translate_id'             => $translate_id,
             'translate_question_label' => 'Answer and go online >'
         ];
 
-        $res_3 = $this->db->insert('translate_question_label', $translate_question_label_data);
-        $res_3 = filter_var($res_3, FILTER_VALIDATE_BOOLEAN);
-
-        $res_4 = $this->setQuestionsForNewLanguage($translate_id, $hotel_id);
+        $res_4 = $this->db->insert('translate_question_label', $translate_question_label_data);
         $res_4 = filter_var($res_4, FILTER_VALIDATE_BOOLEAN);
 
-        return $res_1 || $res_2 || $res_3;
+        $res_5 = $this->setQuestionsForNewLanguage($translate_id, $hotel_id);
+        $res_5 = filter_var($res_5, FILTER_VALIDATE_BOOLEAN);
+
+        return $res_1 || $res_2 || $res_3 || $res_4 || $res_5;
 
     }
 
@@ -428,6 +431,19 @@ class Hotel extends CI_Model
         ];
 
         return $this->db->insert('translate_email', $translate_data);
+    }
+
+    public function setDefaultTranslateFacebook($translate_id)
+    {
+        $translate_data = [
+            'translate_id'  => $translate_id,
+            'title'         => 'Title',
+            'fb_title'      => 'Facebook Title',
+            'middle_title'  => 'Middle Title',
+            'email_title'   => 'Email Title',
+        ];
+
+        return $this->db->insert('translate_fb', $translate_data);
     }
 
     public function setDefaultTranslateQuestion($translate_id, $question_id)
@@ -519,6 +535,9 @@ class Hotel extends CI_Model
 
         //Insert default English row in Translate Email
         $this->setDefaultTranslateEmail($translate_id);
+
+        //Insert default English row in Translate Facebook
+        $this->setDefaultTranslateFacebook($translate_id);
 
         //Insert default English Question
         $question_id = $this->addDefaultQuestion($hotel_id);
