@@ -441,6 +441,7 @@ class Hotel extends CI_Model
             'fb_title'      => 'Facebook Title',
             'middle_title'  => 'Middle Title',
             'email_title'   => 'Email Title',
+            'like_title'    => 'Like Title',
         ];
 
         return $this->db->insert('translate_fb', $translate_data);
