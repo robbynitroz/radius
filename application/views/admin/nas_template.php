@@ -778,10 +778,6 @@
                     '<label for="pwd">Hotel header text:</label>' +
                     '<input type="text" class="form-control" name="title" value="' + data['title'] + '">' +
                     '</div>' +
-//                    '<div class="form-group">' +
-//                    '<label for="pwd">Hotel Facebook button text:</label>' +
-//                    '<input type="text" class="form-control" name="fb_title" value="' + data['fb_title'] + '">' +
-//                    '</div>' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel devider text:</label>' +
                     '<input type="text" class="form-control" name="middle_title" value="' + data['middle_title'] + '">' +
@@ -789,6 +785,10 @@
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel email field placeholder:</label>' +
                     '<input type="text" class="form-control" name="email_title" value="' + data['email_title'] + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="pwd">After Signing by FB title:</label>' +
+                    '<input type="text" class="form-control" name="fb_title" value="' + data['fb_title'] + '">' +
                     '</div>' +
                     '<div class="form-group">' +
                     '<label for="pwd">Hotel background image:</label>' +
